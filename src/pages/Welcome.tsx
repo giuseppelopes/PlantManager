@@ -1,25 +1,19 @@
-import React, {useState} from 'react';
-import { 
-    SafeAreaView, 
-    Text, 
-    Image, 
-    TouchableOpacity, 
-    StyleSheet,
-    Dimensions,
-    View } from 'react-native';
-
-import { Feather } from '@expo/vector-icons'
+import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { Dimensions, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import wateringImage from '../assets/watering.png';
-import { Button } from '../components/Button';
 import colors from '../styles/colors';
-import fonts from '../styles/fonts'
+import fonts from '../styles/fonts';
 
 export function Welcome(){
-    const [visible, setVisible] = useState(true);
-    function handleVisibility() {
-        setVisible(true);
+    const navigation = useNavigation();
+
+    function handleStart(){
+        navigation.navigate('UserIdentification');
     }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.wrapper}>
@@ -38,7 +32,9 @@ export function Welcome(){
                 </Text>
                 <TouchableOpacity 
                     style={styles.button}
-                    activeOpacity={0.7}>
+                    activeOpacity={0.7}
+                    onPress={handleStart}
+                    >
                     
                     <Feather 
                     name="chevron-right"

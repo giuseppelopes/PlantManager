@@ -1,30 +1,25 @@
-import React from 'react';
-import { Welcome } from './src/pages/Welcome';
-import AppLoading from 'expo-app-loading';
-
 import {
-  useFonts,
   Jost_400Regular,
   Jost_600SemiBold,
-} from '@expo-google-fonts/jost'
-import { UserIdentification } from './src/pages/UserIdentification';
+  useFonts,
+} from "@expo-google-fonts/jost";
+import AppLoading from "expo-app-loading";
+import React from "react";
+
+import { UserIdentification } from "./src/pages/UserIdentification";
+import Routes from './src/routes';
 
 export default function App() {
-  const [ fontsLoaded ] = useFonts({
+  const [fontsLoaded] = useFonts({
     Jost_400Regular,
-    Jost_600SemiBold
+    Jost_600SemiBold,
   });
 
-  if (!fontsLoaded)
-    return (
-      <AppLoading />
-    )
+  if (!fontsLoaded) return <AppLoading />;
 
-  return (
-    <UserIdentification />
-  );
+  return <Routes />;
 }
 
 // Codigo desafio aula 1 = Missao Espacial #missaoespacial
-// Codigo desafio aula 2 = 
-// Codigo desafio aula 3 = 
+// Codigo desafio aula 2 = #embuscadoproximonivel
+// Codigo desafio aula 3 =
